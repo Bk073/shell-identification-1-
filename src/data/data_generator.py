@@ -61,7 +61,6 @@ def test_data_generator(test_data, img_dir, IMG_HEIGHT, IMG_WIDTH):
                                                          class_mode='categorical')
    return test_data_gen
    
-
 if '__name__' == '__main__':
    batch_size = 128
    epochs = 5
