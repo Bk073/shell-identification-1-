@@ -6,6 +6,7 @@ import  os
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras import optimizers
 from sklearn.model_selection import train_test_split
+import json
 
 def train():
     batch_size = 128
@@ -24,9 +25,11 @@ def train():
     model.compile(loss='categorical_crossentropy', optimizer=optimizers.Adam(lr=0.001),
               metrics=['accuracy'])
     history = model.fit(train_data_gen,steps_per_epoch=train_data_gen.n//train_data_gen.batch_size,epochs=epochs)
-    model.save_weights('/home/atlas/Atlas/Bishwa/shell-identification-1-/models/v1.00.mobile-net')
+    model.save_weights('/home/atlas/Atlas/Bishwa/shell-identification-1-/models/v1.01.mobile-net/')
     
-    with open('/home/atlas/Atlas/Bishwa/shell-identification-1-/src/labels/v1.00.mobile-net-label.json', 'w') as f:
+    with open('/home/atlas/Atlas/Bishwa/shell-identification-1-/src/labels/v1.01.mobile-net-label.json', 'w') as f:
         json.dump(label_dict, f)
+    
+    valid_data.to_csv('/home/atlas/Atlas/Bishwa/shell-identification-1-/src/data/test_data.csv')
 #  '/home/atlas/Atlas/Bishwa/data/image'
 # /home/bishwa/G/shell-identification/data/new_shell_images_2nd
