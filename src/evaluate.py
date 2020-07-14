@@ -4,7 +4,16 @@ from matplotlib import pyplot as plt
 import pandas as pd
 from models.mobile_net import Mobile_net
 import tensorflow as tf
-from predict import load_level
+from predict import load_label
+from sklearn.metrics import accuracy_score, classification_report
+
+# def load_label():
+#     label_path = '/home/atlas/Atlas/Bishwa/shell-identification-1-/src/labels/v1.01.mobile-net-label.json'
+#     with open(label_path, 'r') as f:
+#         label = json.load(f)
+#     label_dict_inv = {v:k for k,v in label.items()}
+#     return label_dict_inv
+
 
 def eval_plot(loss, accuracy):
     plt.figure(figsize=(8, 8))
@@ -16,7 +25,7 @@ def eval_plot(loss, accuracy):
     plt.title('Accuracy and loss')
 
 
-def eval(model):
+def eval(model_type):
     IMG_HEIGHT = 224
     IMG_WIDTH = 224
     img_dir = '/home/atlas/Atlas/Bishwa/data/image'
@@ -34,7 +43,7 @@ def eval(model):
         predict = model.predict(test_data_gen)
         predict_indices = tf.math.argmax(predict, 1)
         
-        label_dict_inv = load_level()
+        label_dict_inv = load_label()
 
         prediction = [] 
 
