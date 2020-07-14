@@ -5,7 +5,7 @@ from models.mobile_net import Mobile_net
 import json
 
 def load_label():
-    label_path = '/home/atlas/Atlas/Bishwa/shell-identification-1-/src/labels/v1.00.mobile-net-label.json'
+    label_path = '/home/atlas/Atlas/Bishwa/shell-identification-1-/src/labels/v1.01.mobile-net-label.json'
     with open(label_path, 'r') as f:
         label = json.load(f)
     label_dict_inv = {v:k for k,v in label.items()}
@@ -18,17 +18,17 @@ def predict(model, img):
     image = image.astype("float") / 255.0
     image = img_to_array(image)
     image = np.expand_dims(image, axis=0)
-    predict = model_1.predict(image)
+    predict = model.predict(image)
     
     label = np.argmax(predict)
-    label_class = load_level()
+    label_class = load_label()
     labelName = label_class[label]
     return labelName
     
 
 if __name__ == '__main__':
     model = Mobile_net()
-    model.load_weights('/home/atlas/Atlas/Bishwa/shell-identification-1-/models/v1.00.mobile-net')
+    model.load_weights('/home/atlas/Atlas/Bishwa/shell-identification-1-/models/v1.01.mobile-net/')
     img_dir = '/home/atlas/Atlas/Bishwa/data/image'
     img = img_dir+'/Arthritica_helmsi_1_B.jpg'
     prediction = predict(model=model, img=img)
