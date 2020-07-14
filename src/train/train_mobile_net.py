@@ -10,7 +10,7 @@ import json
 
 def train():
     batch_size = 128
-    epochs = 10
+    epochs = 2
     IMG_HEIGHT = 224
     IMG_WIDTH = 224
     img_dir = '/home/atlas/Atlas/Bishwa/data/image'
