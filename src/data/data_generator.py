@@ -48,7 +48,19 @@ def valid_data_generator(valid_data, img_dir, IMG_HEIGHT, IMG_WIDTH):
                                                           class_mode='categorical')
    return valid_data_gen
  
- 
+def test_data_generator(test_data, img_dir, IMG_HEIGHT, IMG_WIDTH):
+   test_image_generator = ImageDataGenerator(rescale=1./255)
+   test_data_gen = test_image_generator.flow_from_dataframe(
+                                                         dataframe = test_data,
+                                                         x_col = "image",
+                                                         y_col = None,
+                                                         directory=img_dir,
+                                                         shuffle=False,
+                                                         target_size=(IMG_HEIGHT,
+                                                         IMG_WIDTH),
+                                                         class_mode=None)
+   return test_data_gen
+   
 if '__name__' == '__main__':
    batch_size = 128
    epochs = 5
@@ -57,5 +69,6 @@ if '__name__' == '__main__':
    img_dir = '../../data/new_shell_images_2nd'
  
    df = create_dataframe()
-   train_data, valid_data = train_test_split(df, test_size=0.2,stratify=df['label'])
+   train_data, valid = train_test_split(df, test_size=0.2,stratify=df['label'])
+   valid_data, test_data = train_test_split(valid, test_size=0.1, stratify=valid['label'])
    train_data_generator = train_data_generator(train_data, batch_size = 128, IMG_HEIGHT = 150, IMG_WIDTH = 150, img_dir=img_dir)
