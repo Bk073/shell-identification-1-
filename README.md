@@ -8,7 +8,9 @@ Each species has shell samples ranging from 1 to 87 respectively, and every shel
 Each image is labelled with its scientific name and of size 300*400 pixels.
 
 # Requirements:
-- conda env create --file requirements.txt
+Create environment directly:
+- conda env create --file environments.txt
+Or
 Create environment with requirements.txt
 - pip install requirements.txt
  
