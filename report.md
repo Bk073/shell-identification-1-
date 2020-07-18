@@ -77,6 +77,7 @@ I tried testing these labels to see if the model works better if we have more im
 Overall results: [Results in sheet][3]
 
 1. Simple Base model:
+
     ![horizontal-flip](./img/basemodel.png)
 
     Test set result:
@@ -88,6 +89,7 @@ Overall results: [Results in sheet][3]
     | Weighted avg | 0.2790337 | 0.347371 | 0.285979 | 11849|
 
 2. Mobile-net trained for 15 epochs:
+
     ![mobile-net-15](./img/mobile-net-15.png)
 
     Test set result:
