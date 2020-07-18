@@ -125,7 +125,7 @@ Overall results: [Results in sheet][3]
 
 5. For 71 labels:
 
-    ![labels-71] (./img/labelseventy.png)
+    ![labels](./img/labelseventy.png)
 
     |  | Precision | Recall | F1 Score | Support |
     |--| --------- | ------ | -------- | ------- |
