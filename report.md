@@ -141,7 +141,7 @@ As we can see from the above results that the training accuracy is increasing wh
 To make this system production ready we need to get more images for the shell.
 From the results above we can say that the model performs better if we have more data. Approximately, 2400 labels have only 2 images (i.e only 1 shell) so it is harder for the model to learn features from those labels.
 
-We can see from the results for 71 labels for which each label has 40 images, the accuracy is increased and this accuracy can still be improved.
+We can see from the results for 71 labels for which each label has 40 images, the accuracy is increased and this accuracy can still be improved, due to limitation of time I could not test more in it.
 
 References:
 - [Mobile-net paper][1]
