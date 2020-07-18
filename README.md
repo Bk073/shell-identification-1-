@@ -19,6 +19,7 @@ Each image is labelled with its scientific name and of size 300*400 pixels.
 - tensorflow-gpu==2.2.0
 - keras
 
+Before training and making prediction make sure all the path are set according to your setup.
 # Train model:
 Uncomment ` main(train_model=True, model_type='mobile_net')` in main.py to train the model
 and uncomment `eval_(model_type='mobile_net')`to evaluate the model.
