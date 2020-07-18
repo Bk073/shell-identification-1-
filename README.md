@@ -18,6 +18,7 @@ Each image is labelled with its scientific name and of size 300*400 pixels.
 - seaborn==0.9.0
 - tensorflow-gpu==2.2.0
 - keras
+- flask
 
 Before training and making prediction make sure all the path are set according to your setup.
 # Train model:
