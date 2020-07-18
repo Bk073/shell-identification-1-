@@ -8,10 +8,6 @@ Each species has shell samples ranging from 1 to 87 respectively, and every shel
 Each image is labelled with its scientific name and of size 300*400 pixels.
 
 # Requirements:
-Create environment directly:
-- conda env create --file environments.txt
-Or
-Create environment with requirements.txt
 - pip install requirements.txt
  
 - matplotlib==3.1.2
@@ -22,3 +18,14 @@ Create environment with requirements.txt
 - seaborn==0.9.0
 - tensorflow-gpu==2.2.0
 - keras
+
+# Train model:
+Uncomment ` main(train_model=True, model_type='mobile_net')` in main.py to train the model
+and uncomment `eval_(model_type='mobile_net')`to evaluate the model.
+
+`python main.py`
+
+# Predict:
+
+`python predict.py` to predict stored images
+`python app.py` to predict via server
