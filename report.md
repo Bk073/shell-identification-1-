@@ -91,7 +91,7 @@ Overall results: [Results in sheet][3]
 
 2. Mobile-net trained for 15 epochs:
     Plot 
-    
+
     ![mobile-net-15](./img/mobile-net-15.png)
 
     Test set result:
@@ -125,7 +125,7 @@ Overall results: [Results in sheet][3]
 
 5. For 71 labels:
 
-    ![labels-71] (./img/label-71.png)
+    ![labels-71] (./img/labelseventy.png)
 
     |  | Precision | Recall | F1 Score | Support |
     |--| --------- | ------ | -------- | ------- |
