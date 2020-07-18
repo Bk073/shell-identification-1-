@@ -74,7 +74,7 @@ I tried testing these labels to see if the model works better if we have more im
 
 ## Evaluations and results:
 
-Overall results: Results in sheet
+Overall results: [Results in sheet][3]
 
 1. Simple Base model:
     ![horizontal-flip](./img/basemodel.png)
@@ -83,6 +83,66 @@ Overall results: Results in sheet
 
     |  | Precision | Recall | F1 Score | Support |
     |--| --------- | ------ | -------- | ------- |
+    |accuracy| | | 0.347371 | 11849 |
+    | Macro avg | 0.1817755 | 0.204980 | 0.179300 | 11849 |
+    | Weighted avg | 0.2790337 | 0.347371 | 0.285979 | 11849|
+
+2. Mobile-net trained for 15 epochs:
+    ![mobile-net-15](./img/mobile-net-15.png)
+
+    Test set result:
+
+    |  | Precision | Recall | F1 Score | Support |
+    |--| --------- | ------ | -------- | ------- |
     |accuracy| | | 0.47 | 11849 |
     | Macro avg | 0.3389876 | 0.363136 | 0.328312 | 11849 |
     | Weighted avg | 0.4675834 | 0.471600 | 0.438162 | 11849|
+
+3. Data augmentation on Mobile-net:
+    Since the result shows that the model is overfitting I do not want to add more augmentation on the data, so I have just made a horizontal flip and rotation by 45 degree.
+
+    ![data-aug](./img/data-aug.png)
+
+    |  | Precision | Recall | F1 Score | Support |
+    |--| --------- | ------ | -------- | ------- |
+    |accuracy| | | 0.412524 | 11849 |
+    | Macro avg | 0.2900279 | 0.318409 | 0.279691 | 11849 |
+    | Weighted avg | 0.4121459 | 0.412524 | 0.378711 | 11849|
+
+4. Dropout:
+
+    ![dropout](./img/dropout.png)
+
+    |  | Precision | Recall | F1 Score | Support |
+    |--| --------- | ------ | -------- | ------- |
+    |accuracy| | | 0.227192 | 11849 |
+    | Macro avg | 0.1157586 | 0.147622 | 0.113464 | 11849 |
+    | Weighted avg | 0.1946501 | 0.227192 | 0.182527 | 11849|
+
+5. For 71 labels:
+
+    ![labels-71] (./img/label-71.png)
+
+    |  | Precision | Recall | F1 Score | Support |
+    |--| --------- | ------ | -------- | ------- |
+    |accuracy| | | 0.73 | 11849 |
+    | Macro avg | 0.63 | 0.63 | 0.60 | 11849 |
+    | Weighted avg | 0.74 | 0.73 | 0.70 | 11849|
+
+    From the plot above we can see that this model is working well though it still has high variance but we can analyze that this model can be improved by decreasing the network complexity or may be having more dropout or regularizing.
+
+## Conclusion & Recommendation:
+As we can see from the above results that the training accuracy is increasing while the F1 score of test data is poor, clearly the model is overfitting on the training data. With data augmentation the training accuracy is a little more stable and the F1 score for test data but the results are not good.
+
+To make this system production ready we need to get more images for the shell.
+From the results above we can say that the model performs better if we have more data. Approximately, 2400 labels have only 2 images (i.e only 1 shell) so it is harder for the model to learn features from those labels.
+
+We can see from the results for 71 labels for which each label has 40 images, the accuracy is increased and this accuracy can still be improved.
+
+References:
+- [Mobile-net paper][1]
+- [Transfer-learning-using-mobilenet][2]
+
+[1]: https://arxiv.org/abs/1704.04861
+[2]: https://towardsdatascience.com/transfer-learning-using-mobilenet-and-keras-c75daf7ff299
+[3]: https://docs.google.com/spreadsheets/d/1GWLSx46TZpQoIF3RDBD__70XqZ4KTFnaZZB0-GDRTIE/edit
